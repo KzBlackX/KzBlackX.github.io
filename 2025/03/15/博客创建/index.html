@@ -47,6 +47,16 @@
 <link rel="stylesheet" href="/deps/css/APlayer.min.css">
 
 		
+			
+				
+<link rel="stylesheet" href="/style.css">
+
+			
+				
+<link rel="stylesheet" href="/custom.css">
+
+			
+		
 		
 <script src="/deps/js/APlayer.min.js"></script>
 <script src="/deps/js/Meting.min.js"></script>
@@ -331,20 +341,21 @@
 		
 		<div class="kira-post-meta kira-rainbow" style="margin:10px 0!important;">
 			<a><i class="kirafont icon-calendar-fill"></i>2025年03月15日</a>
-			<a><i class="kirafont icon-edit-fill"></i>274 字</a>
-			<a><i class="kirafont icon-time-circle-fill"></i>大概 1 分钟</a>
+			<a><i class="kirafont icon-edit-fill"></i>1.2k 字</a>
+			<a><i class="kirafont icon-time-circle-fill"></i>大概 6 分钟</a>
 		</div>
-		<html><head></head><body><h1><span id="%E5%9C%A8centos-9-%E4%B8%8A%E5%AE%89%E8%A3%85hexogithub%E6%90%AD%E5%BB%BAblog%E7%BD%91%E9%A1%B5">在CentOS 9 上安装Hexo+GitHUB搭建Blog网页</span></h1><h2><span id="%E4%BD%BF%E7%94%A8hexo-httpshexoiozh-cn">使用Hexo </span></h2><p><code>sudo dnf install npm -y</code> 安装npm</p>
+		<html><head></head><body><h1><span id="%E5%9C%A8centos-9-%E4%B8%8A%E5%AE%89%E8%A3%85hexogithub%E6%90%AD%E5%BB%BAblog%E7%BD%91%E9%A1%B5">在CentOS 9 上安装Hexo+GitHUB搭建Blog网页</span></h1><h2><span id="%E4%BD%BF%E7%94%A8hexo">使用Hexo</span></h2><p>Hexo官网 <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn">https://hexo.io/zh-cn</a></p>
+<p><code>sudo dnf install npm -y</code> 安装npm</p>
 <p><code>npm install hexo-cli -g</code></p>
 <p><code>hexo init blog</code></p>
 <p><code>cd blog</code></p>
 <p><code>npm install</code></p>
-<p><code>hexo server</code></p>
+<p><code>hexo server</code> 启动hexo</p>
 <h2><span id="%E4%B8%8A%E4%BC%A0%E5%88%B0github">上传到GitHUB</span></h2><h3><span id="%E9%85%8D%E7%BD%AEssh-key">配置SSH KEY</span></h3><p><code>ssh-keygen -t rsa -C "邮件地址"</code></p>
-<p>连续回车三次默认配置，会在此用户文件夹下生成 <strong>.ssh\id_rsa.pub</strong>，复制里面的全部内容</p>
-<p>在GitHUB页面，找到 <strong>setting -&gt; SSH and GPG keys -&gt; New SSH key</strong>，将key填入，保存</p>
+<p>连续回车三次默认配置，会在此用户文件夹下生成 <strong>.ssh\id_rsa.pub</strong>，复制里面的全部内容。</p>
+<p>在GitHUB页面，找到 <strong>setting -&gt; SSH and GPG keys -&gt; New SSH key</strong>，将key填入，保存。</p>
 <h3><span id="%E6%B5%8B%E8%AF%95%E9%85%8D%E7%BD%AE%E6%98%AF%E5%90%A6%E6%AD%A3%E5%B8%B8">测试配置是否正常</span></h3><p><code>ssh -T git@github.com</code> or <code>ssh -T -p 443 git@ssh.github.com</code></p>
-<p>如果提示 <strong>kex_exchange_identification: Connection closed by remote host<br>Connection closed by 20.205.243.166 port 22</strong>，是因为22端口被占用或防火墙阻断，需要添加参数 <strong>-p 443</strong> 以使用443端口来测试</p>
+<p>如果提示 <strong>kex_exchange_identification: Connection closed by remote host<br>Connection closed by 20.205.243.166 port 22</strong>，是因为22端口被占用或防火墙阻断，需要添加参数 <strong>-p 443</strong> 以使用443端口来测试。</p>
 <p>如果提示Are you sure you want to continue connecting (yes/no)?，输入yes，然后会看到：</p>
 <p>Hi KzBlackX! You’ve successfully authenticated, but GitHub does not provide shell access.</p>
 <p>看到这个信息说明SSH已配置成功！</p>
@@ -352,6 +363,156 @@
 <p><code>git config --global user.name "KzBlackX"// GitHUB用户名，非昵称</code><br><code>git config --global user.email  "KzBlackX@outlook.com"// 填写GitHUB注册邮箱</code></p>
 <h3><span id="%E7%BC%96%E8%AF%91%E5%B9%B6%E4%B8%8A%E4%BC%A0">编译并上传</span></h3><p><code>hexo g</code> 编译</p>
 <p><code>hexo d</code> 上传到github</p>
+<h2><span id="%E7%BC%96%E5%86%99%E5%8D%9A%E5%AE%A2">编写博客</span></h2><p>可以执行下列命令来创建一篇新文章或者新的页面</p>
+<p><code>hexo new [layout] &lt;title&gt;</code></p>
+<p>post是默认的布局，但你也可以提供自己的布局。 您可以通过编辑 _config.yml 中的 default_layout 设置来更改默认布局。</p>
+<p>页面文件在<code>source/_posts</code> ,打开对应的md文件即可编辑</p>
+<p>添加 <code>cover:</code> 参数即可更改文章封面文件 （使用 <a target="_blank" rel="noopener" href="https://github.com/ch1ny/kira-hexo/">https://github.com/ch1ny/kira-hexo/</a> Hexo主题时，若使用其他主题，以其他主题的配置文档为准,本文章与主题相关内容皆基于kira-hexo来编写）</p>
+<h2><span id="%E5%AE%89%E8%A3%85%E4%B8%BB%E9%A2%98kira-hexo">安装主题（kira-hexo）</span></h2><p>在你的 Hexo 项目根目录下运行,使用npm安装主题</p>
+<p><code>npm i hexo-theme-kira</code></p>
+<p>启用Kira-Hexo</p>
+<p>在 <code>_config.yml</code> 中，将 <code>theme</code> 的值修改为 <code>kira</code></p>
+<p>代码高亮</p>
+<p>Kira-Hexo 的代码高亮依赖于 hljs，因此使用 kira-hexo 的同时需要将 <code>_config.yml</code> 中的 <code>highlight</code>-<code>hljs</code> 设置为 <code>true</code>。</p>
+<p>安装好主题后，在 Hexo 根目录下修改 <code>_config.kira.yml</code> 配置文件如下</p>
+<pre><code class="language-avatar:">background: # 既是博客的背景，又是文章默认头图
+    path: 
+    width: 1280
+    height: 720
+favicon:
+    href:  # 网站图标
+    type: image/png # 图标类型，可能的值有(image/png, image/vnd.microsoft.icon, image/x-icon, image/gif)
+
+# 附加图标库 使用说明：https://kira.host/hexo/config/icon.html
+# iconlib: //at.alicdn.com/t/font_3299330_el19bsi97h8.css
+
+cdn: # 这里可以修改站点使用的库的CDN
+    gitalk:
+        css: https://unpkg.com/gitalk@latest/dist/gitalk.css
+        js: https://unpkg.com/gitalk@latest/dist/gitalk.min.js
+    giscus:
+        js: https://giscus.app/client.js
+
+# beian:  # 备案号（选填）
+
+menu:
+    回到首页:
+        - /
+        - icon-home
+    文章归档:
+        - /archive.html
+        - icon-container
+    关于本人:
+        - /about.html
+        - icon-user
+    我的朋友:
+        - /friends.html
+        - icon-team
+
+widgets:
+    - social
+    - category
+    - tagcloud
+    - archive
+
+maxTagcloud: 0 # 标签云组件显示的标签数量，0 表示不限制
+
+social:
+    QQ:
+        - tencent://AddContact/?fromId=45&amp;fromSubId=1&amp;subcmd=all&amp;uin=&lt;去掉尖括号后填上你的QQ号&gt;&amp;website=www.oicqzone.com
+        - icon-QQ
+        - rgb(49, 174, 255)
+        - rgba(49, 174, 255, .1)
+    哔哩哔哩:
+        - https://space.bilibili.com/&lt;改成你的B站uid&gt;
+        - icon-bilibili
+        - rgb(231, 106, 141)
+        - rgba(231, 106, 141, .15)
+    GitHub:
+        - https://github.com/&lt;你的github id&gt;/
+        - icon-github
+        - rgb(25, 23, 23)
+        - rgba(25, 23, 23, .15)
+    Gitee:
+        - https://gitee.com/&lt;你的gitee id&gt;
+        - icon-gitee
+        - rgb(165, 15, 15)
+        - rgba(165, 15, 15, .15)
+
+color: # 配色方案，从first到seventh为优先级为1-7的颜色，默认为彩虹配色
+    first: # 同时作为主题色
+        r: 49
+        g: 174
+        b: 255
+    second:
+        r: 255
+        g: 78
+        b: 106
+    third:
+        r: 255
+        g: 185
+        b: 0
+    fourth:
+        r: 51
+        g: 213
+        b: 122
+    fifth:
+        r: 0
+        g: 219
+        b: 255
+    sixth:
+        r: 255
+        g: 69
+        b: 0
+    seventh:
+        r: 144
+        g: 144
+        b: 255
+
+# 评论区
+gitalk:
+    active: false # 是否启用 gitalk
+    admin: -your github username- # 拥有对该repo进行操作的 GitHub username
+    owner: -your github username- # 持有该 repo 的 GitHub username
+    repo: -issue repo name- # 存放评论的 issue 所在的 repo
+    clientID: -id- # GitHub Client ID
+    clientSecret: -key- # GitHub Client Secret
+    title: '' # Gitalk Issue Title
+# https://giscus.app/zh-CN 可以在这个网站上手动选择配置填到下方对应位置
+giscus:
+    active: true # 是否启用 giscus
+    repo: -your github username-/-your giscus repo- # 存放评论的 discus 所在的 repo
+    repoID: -your giscus repo ID- # GitHub repo ID
+    category: Announcements # 选择新 discussions 所在的分类
+    categoryID: -giscus category id- # 分类 ID
+    mapping: pathname # pathname, url, title, og:title, specific, number
+    # term: # abc 123 # specific | number
+    theme: light
+    lang: en
+
+copyright: '&lt;strong&gt;版权声明：&lt;/strong&gt;本文采用 &lt;a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank"&gt;CC BY-NC-SA 3.0 CN&lt;/a&gt; 协议进行许可'
+copyTip: "著作权归作者所有。\n商业转载请联系作者获得授权，非商业转载请注明出处。\n来源：%url" # 自定义复制版权文案,使用 %url 代替当前页面URL, 修改为false禁用
+
+# 自定义侧边栏尾部内容
+sidebar: ''
+
+# 自定义样式
+# customStyles:
+#     - style
+#     - custom
+
+# 友链配置
+friends:
+    # - avatar: &lt;友链缩略图&gt;
+    #   link: &lt;跳转连接&gt;
+    #   name: &lt;名称&gt;
+
+# 可复制的代码块
+copyableCodeblock: true
+
+
+
+</code></pre>
 </body></html>
 	</article>
 
